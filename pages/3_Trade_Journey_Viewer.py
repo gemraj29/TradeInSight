@@ -73,7 +73,7 @@ st.divider()
 # --------------------------------------------------------------------------- #
 MANUAL_TAGS = ["", "FOMO", "Averaged Down", "Rolled", "Disciplined", "Mistake", "Research", "Other"]
 
-for j in sorted(filtered, key=lambda x: x.get("entry_date") or "", reverse=True):
+for j in sorted(filtered, key=lambda x: str(x.get("entry_date") or ""), reverse=True):
     pnl = j["realized_pnl"]
     color = pnl_color(pnl)
     flags = j["behavior_flags"]
@@ -82,7 +82,7 @@ for j in sorted(filtered, key=lambda x: x.get("entry_date") or "", reverse=True)
     header_cols = st.columns([3, 1, 1, 1, 1])
     with header_cols[0]:
         opt_label = ""
-        if j.get("opt_type"):
+        if j.get("opt_type") and j.get("opt_strike") is not None:
             opt_label = (
                 f" · {j['opt_type'].upper()} ${j['opt_strike']:g} "
                 f"exp {j['opt_expiry']}"
