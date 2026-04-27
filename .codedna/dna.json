@@ -1,0 +1,63 @@
+{
+  "name": "TradeInSight",
+  "version": "0.1.0",
+  "description": "Local-first trading analysis dashboard for Fidelity options P&L and behavioral mistake analysis",
+  "domain": "fintech",
+
+  "tech_stack": {
+    "language": "Python 3.11",
+    "frontend": "Streamlit",
+    "database": "SQLite + SQLAlchemy",
+    "data": "Pandas + Plotly",
+    "testing": "pytest",
+    "llm_optional": "Anthropic Claude (recovery plan only)"
+  },
+
+  "conventions": {
+    "naming_functions": "snake_case",
+    "naming_classes": "PascalCase",
+    "naming_files": "snake_case",
+    "naming_constants": "UPPER_SNAKE_CASE",
+    "max_line_length": 88,
+    "indent": "4 spaces",
+    "error_handling": "result_tuple",
+    "logging_style": "structured",
+    "testing_style": "pytest",
+    "doc_style": "google"
+  },
+
+  "architecture": {
+    "pattern": "feature_based",
+    "layers": [
+      { "name": "domain",   "note": "Pure dataclasses — zero DB or framework imports" },
+      { "name": "features", "note": "Business logic engines — import domain only" },
+      { "name": "core",     "note": "Config, DB, logging — imported by features" },
+      { "name": "pages",    "note": "Streamlit UI — imports features and core" }
+    ]
+  },
+
+  "tasks": [
+    { "id": "T01", "status": "in_progress",  "description": "Scaffold project structure" },
+    { "id": "T02", "status": "pending",       "description": "Sample CSV + README" },
+    { "id": "T03", "status": "pending",       "description": "Core config / DB / logging" },
+    { "id": "T04", "status": "pending",       "description": "Domain models" },
+    { "id": "T05", "status": "pending",       "description": "DB schema + repositories" },
+    { "id": "T06", "status": "pending",       "description": "Fidelity CSV parser" },
+    { "id": "T07", "status": "pending",       "description": "Trade Journey Engine" },
+    { "id": "T08", "status": "pending",       "description": "Behavior Analyzer" },
+    { "id": "T09", "status": "pending",       "description": "P&L Engine" },
+    { "id": "T10", "status": "pending",       "description": "Recovery Plan Generator" },
+    { "id": "T11", "status": "pending",       "description": "Streamlit Home + UI components" },
+    { "id": "T12", "status": "pending",       "description": "Overview + Import pages" },
+    { "id": "T13", "status": "pending",       "description": "Journey Viewer + Manual Review" },
+    { "id": "T14", "status": "pending",       "description": "Loss Breakdown + Avg Down pages" },
+    { "id": "T15", "status": "pending",       "description": "Rolling + Expiry + Behavior pages" },
+    { "id": "T16", "status": "pending",       "description": "Recovery Plan + Settings pages" },
+    { "id": "T17", "status": "pending",       "description": "Tests" },
+    { "id": "T18", "status": "pending",       "description": "Verify end-to-end" }
+  ],
+
+  "llm_provider": "anthropic",
+  "llm_model": "claude-3-5-sonnet-20241022",
+  "token_budget_per_task": 6000
+}
